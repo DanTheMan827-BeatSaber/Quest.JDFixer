@@ -1,11 +1,12 @@
 {
+  "$schema": "https://raw.githubusercontent.com/QuestPackageManager/QPM.Package/refs/heads/main/qpm.schema.json",
   "version": "0.1.0",
   "sharedDir": "shared",
   "dependenciesDir": "extern",
   "info": {
     "name": "JDFixer",
     "id": "jdfixer",
-    "version": "3.3.0",
+    "version": "3.4.0",
     "url": null,
     "additionalData": {
       "overrideSoName": "libjdfixer.so"
@@ -15,6 +16,9 @@
     "scripts": {
       "build": [
         "pwsh ./scripts/build.ps1 $0?"
+      ],
+      "clean": [
+        "pwsh ./scripts/build.ps1 -clean"
       ],
       "copy": [
         "pwsh ./scripts/copy.ps1 $0:?",
@@ -37,9 +41,13 @@
         "pwsh ./scripts/pull-tombstone.ps1 -analyze"
       ]
     },
-    "qmodIncludeDirs": [],
+    "ndk": "^27.2.12479018",
+    "qmodIncludeDirs": [
+      "build",
+      "extern/libs"
+    ],
     "qmodIncludeFiles": [],
-    "qmodOutput": null
+    "qmodOutput": "JDFixer.qmod"
   },
   "dependencies": [
     {
@@ -56,12 +64,12 @@
     },
     {
       "id": "bs-cordl",
-      "versionRange": "^4006.0.0",
+      "versionRange": "4007.*",
       "additionalData": {}
     },
     {
       "id": "bsml",
-      "versionRange": "^0.4.53",
+      "versionRange": "^0.4.54",
       "additionalData": {}
     },
     {
@@ -71,7 +79,7 @@
     },
     {
       "id": "custom-types",
-      "versionRange": "^0.18.2",
+      "versionRange": "^0.18.3",
       "additionalData": {}
     },
     {
@@ -81,7 +89,7 @@
     },
     {
       "id": "metacore",
-      "versionRange": "^1.3.0",
+      "versionRange": "^1.3.3",
       "additionalData": {}
     },
     {
